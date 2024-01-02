@@ -360,7 +360,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
         _firstSelectedDay = day;
         widget.onRangeSelected!(_firstSelectedDay, null, _focusedDay.value);
       } else {
-        if (day.isAfter(_firstSelectedDay!)) {
+        if (day.isAfter(_firstSelectedDay!) || isSameDay(day, _firstSelectedDay)) {
           widget.onRangeSelected!(_firstSelectedDay, day, _focusedDay.value);
           _firstSelectedDay = null;
         } else if (day.isBefore(_firstSelectedDay!)) {
